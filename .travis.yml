@@ -1,5 +1,9 @@
 language: python
-install:
-  - pip install -r requirements.txt
+services:
+  - docker
+
+before_install:
+  - docker build -t python_cicd .
+
 script:
-  - pytest
+  - docker run -e CI=true python_cicd python -m pytest
