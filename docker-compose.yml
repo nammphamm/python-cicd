@@ -1,0 +1,11 @@
+version: '3'
+services:
+  ds:
+    build: .
+    ports:
+      - "8081:8081"
+    container_name: pihc_dev
+    stdin_open: true # docker run -i
+    tty: true # docker run -t
+    volumes:
+      - ..:/app
